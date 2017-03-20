@@ -1,0 +1,8 @@
+prefix=/home/jposteps/anro/devel
+
+Name: lab1
+Description: Description of lab1
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/jposteps/anro/devel/lib 
+Requires: 

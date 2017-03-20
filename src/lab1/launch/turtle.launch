@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="turtlesim" name="sim" type="turtlesim_node" />
+  <node name="talker" pkg="lab1" type="talker">
+   <remap from="chatter" to="turtle1/cmd_vel"/>
+  </node>
+  
+</launch>
