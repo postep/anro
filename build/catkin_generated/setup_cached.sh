@@ -8,4 +8,3 @@
 
 # modified environment variables
 export PWD="/home/jposteps/anro/build"
-export PYTHONPATH="/home/jposteps/anro/devel/lib/python2.7/dist-packages:$PYTHONPATH"

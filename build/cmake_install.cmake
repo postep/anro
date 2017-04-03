@@ -118,6 +118,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/jposteps/anro/build/gtest/cmake_install.cmake")
   include("/home/jposteps/anro/build/lab1/cmake_install.cmake")
+  include("/home/jposteps/anro/build/lab2/cmake_install.cmake")
 
 endif()
 

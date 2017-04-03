@@ -1,2 +1,2 @@
-lab1
+lab1:lab2
 -DCATKIN_DEVEL_PREFIX=/home/jposteps/anro/devel -DCMAKE_INSTALL_PREFIX=/home/jposteps/anro/install -G Unix Makefiles

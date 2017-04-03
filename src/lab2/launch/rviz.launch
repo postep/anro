@@ -1,0 +1,5 @@
+<launch>
+        <param name="robot_description" command="cat $(find lab2)/first.urdf" />
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+        <node name="state_publisher" pkg="lab2" type="state_publisher" />
+</launch>
