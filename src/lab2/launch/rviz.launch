@@ -1,5 +1,10 @@
 <launch>
-    <param name="robot_description" textfile="$(find lab2)/first.urdf" />
-    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_publisher" />
-    <node name="rviz" pkg="rviz" type="rviz" />
+
+ <arg name="rvizconfig" default="$(find lab2)/rviz/urdf.rviz" />	
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find lab2)/first.urdf" />
+  <param name="use_gui" value="false"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
 </launch>
