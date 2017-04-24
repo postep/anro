@@ -91,3 +91,11 @@
 /home/jposteps/anro/build/lab2/CMakeFiles/install.dir
 /home/jposteps/anro/build/lab2/CMakeFiles/tf2_msgs_generate_messages_py.dir
 /home/jposteps/anro/build/lab2/CMakeFiles/tf2_msgs_generate_messages_eus.dir
+/home/jposteps/anro/build/lab3/CMakeFiles/list_install_components.dir
+/home/jposteps/anro/build/lab3/CMakeFiles/install.dir
+/home/jposteps/anro/build/lab3/CMakeFiles/rebuild_cache.dir
+/home/jposteps/anro/build/lab3/CMakeFiles/edit_cache.dir
+/home/jposteps/anro/build/lab3/CMakeFiles/nonkdl_dkin.dir
+/home/jposteps/anro/build/lab3/CMakeFiles/install/strip.dir
+/home/jposteps/anro/build/lab3/CMakeFiles/install/local.dir
+/home/jposteps/anro/build/lab3/CMakeFiles/test.dir

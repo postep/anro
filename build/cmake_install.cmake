@@ -119,6 +119,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/jposteps/anro/build/gtest/cmake_install.cmake")
   include("/home/jposteps/anro/build/lab1/cmake_install.cmake")
   include("/home/jposteps/anro/build/lab2/cmake_install.cmake")
+  include("/home/jposteps/anro/build/lab3/cmake_install.cmake")
 
 endif()
 

@@ -1010,6 +1010,19 @@ tf2_msgs_generate_messages_eus/fast:
 	$(MAKE) -f lab2/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make lab2/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
+#=============================================================================
+# Target rules for targets named nonkdl_dkin
+
+# Build rule for target.
+nonkdl_dkin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nonkdl_dkin
+.PHONY : nonkdl_dkin
+
+# fast build rule for target.
+nonkdl_dkin/fast:
+	$(MAKE) -f lab3/CMakeFiles/nonkdl_dkin.dir/build.make lab3/CMakeFiles/nonkdl_dkin.dir/build
+.PHONY : nonkdl_dkin/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1088,6 +1101,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_eus"
+	@echo "... nonkdl_dkin"
 .PHONY : help
 
 

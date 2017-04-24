@@ -871,7 +871,7 @@ clean: lab1/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 lab1/CMakeFiles/talker.dir/all:
 	$(MAKE) -f lab1/CMakeFiles/talker.dir/build.make lab1/CMakeFiles/talker.dir/depend
 	$(MAKE) -f lab1/CMakeFiles/talker.dir/build.make lab1/CMakeFiles/talker.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=8,9 "Built target talker"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=10,11 "Built target talker"
 .PHONY : lab1/CMakeFiles/talker.dir/all
 
 # Include target in all.
@@ -1257,9 +1257,9 @@ clean: lab1/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 # Target rules for target lab1/CMakeFiles/lab1_generate_messages.dir
 
 # All Build rule for target.
+lab1/CMakeFiles/lab1_generate_messages.dir/all: lab1/CMakeFiles/lab1_generate_messages_py.dir/all
 lab1/CMakeFiles/lab1_generate_messages.dir/all: lab1/CMakeFiles/lab1_generate_messages_lisp.dir/all
 lab1/CMakeFiles/lab1_generate_messages.dir/all: lab1/CMakeFiles/lab1_generate_messages_eus.dir/all
-lab1/CMakeFiles/lab1_generate_messages.dir/all: lab1/CMakeFiles/lab1_generate_messages_py.dir/all
 lab1/CMakeFiles/lab1_generate_messages.dir/all: lab1/CMakeFiles/lab1_generate_messages_nodejs.dir/all
 lab1/CMakeFiles/lab1_generate_messages.dir/all: lab1/CMakeFiles/lab1_generate_messages_cpp.dir/all
 	$(MAKE) -f lab1/CMakeFiles/lab1_generate_messages.dir/build.make lab1/CMakeFiles/lab1_generate_messages.dir/depend
@@ -1440,7 +1440,7 @@ lab2/preinstall:
 lab2/CMakeFiles/parser.dir/all:
 	$(MAKE) -f lab2/CMakeFiles/parser.dir/build.make lab2/CMakeFiles/parser.dir/depend
 	$(MAKE) -f lab2/CMakeFiles/parser.dir/build.make lab2/CMakeFiles/parser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=6,7 "Built target parser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=8,9 "Built target parser"
 .PHONY : lab2/CMakeFiles/parser.dir/all
 
 # Include target in all.
@@ -2267,6 +2267,61 @@ lab2/CMakeFiles/tf2_msgs_generate_messages_eus.dir/clean:
 
 # clean rule for target.
 clean: lab2/CMakeFiles/tf2_msgs_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory lab3
+
+# Convenience name for "all" pass in the directory.
+lab3/all: lab3/CMakeFiles/nonkdl_dkin.dir/all
+
+.PHONY : lab3/all
+
+# Convenience name for "clean" pass in the directory.
+lab3/clean: lab3/CMakeFiles/nonkdl_dkin.dir/clean
+
+.PHONY : lab3/clean
+
+# Convenience name for "preinstall" pass in the directory.
+lab3/preinstall:
+
+.PHONY : lab3/preinstall
+
+#=============================================================================
+# Target rules for target lab3/CMakeFiles/nonkdl_dkin.dir
+
+# All Build rule for target.
+lab3/CMakeFiles/nonkdl_dkin.dir/all:
+	$(MAKE) -f lab3/CMakeFiles/nonkdl_dkin.dir/build.make lab3/CMakeFiles/nonkdl_dkin.dir/depend
+	$(MAKE) -f lab3/CMakeFiles/nonkdl_dkin.dir/build.make lab3/CMakeFiles/nonkdl_dkin.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=6,7 "Built target nonkdl_dkin"
+.PHONY : lab3/CMakeFiles/nonkdl_dkin.dir/all
+
+# Include target in all.
+all: lab3/CMakeFiles/nonkdl_dkin.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+lab3/CMakeFiles/nonkdl_dkin.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jposteps/anro/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/nonkdl_dkin.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jposteps/anro/build/CMakeFiles 0
+.PHONY : lab3/CMakeFiles/nonkdl_dkin.dir/rule
+
+# Convenience name for target.
+nonkdl_dkin: lab3/CMakeFiles/nonkdl_dkin.dir/rule
+
+.PHONY : nonkdl_dkin
+
+# clean rule for target.
+lab3/CMakeFiles/nonkdl_dkin.dir/clean:
+	$(MAKE) -f lab3/CMakeFiles/nonkdl_dkin.dir/build.make lab3/CMakeFiles/nonkdl_dkin.dir/clean
+.PHONY : lab3/CMakeFiles/nonkdl_dkin.dir/clean
+
+# clean rule for target.
+clean: lab3/CMakeFiles/nonkdl_dkin.dir/clean
 
 .PHONY : clean
 

@@ -100,16 +100,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target install/strip
+install/strip/fast: install/strip
 
-.PHONY : test/fast
+.PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -122,16 +122,16 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target test
+test/fast: test
 
-.PHONY : install/strip/fast
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,511 +166,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-lab3/CMakeFiles/lab1_generate_messages_py.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_generate_messages_py.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_generate_messages_py.dir/rule
+lab3/CMakeFiles/nonkdl_dkin.dir/rule:
+	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/nonkdl_dkin.dir/rule
+.PHONY : lab3/CMakeFiles/nonkdl_dkin.dir/rule
 
 # Convenience name for target.
-lab1_generate_messages_py: lab3/CMakeFiles/lab1_generate_messages_py.dir/rule
+nonkdl_dkin: lab3/CMakeFiles/nonkdl_dkin.dir/rule
 
-.PHONY : lab1_generate_messages_py
+.PHONY : nonkdl_dkin
 
 # fast build rule for target.
-lab1_generate_messages_py/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_generate_messages_py.dir/build.make lab3/CMakeFiles/lab1_generate_messages_py.dir/build
-.PHONY : lab1_generate_messages_py/fast
+nonkdl_dkin/fast:
+	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/nonkdl_dkin.dir/build.make lab3/CMakeFiles/nonkdl_dkin.dir/build
+.PHONY : nonkdl_dkin/fast
 
-# Convenience name for target.
-lab3/CMakeFiles/lab1_gennodejs.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_gennodejs.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_gennodejs.dir/rule
+src/nonkdl_dkin.o: src/nonkdl_dkin.cpp.o
 
-# Convenience name for target.
-lab1_gennodejs: lab3/CMakeFiles/lab1_gennodejs.dir/rule
-
-.PHONY : lab1_gennodejs
-
-# fast build rule for target.
-lab1_gennodejs/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_gennodejs.dir/build.make lab3/CMakeFiles/lab1_gennodejs.dir/build
-.PHONY : lab1_gennodejs/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_genlisp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_genlisp.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_genlisp.dir/rule
-
-# Convenience name for target.
-lab1_genlisp: lab3/CMakeFiles/lab1_genlisp.dir/rule
-
-.PHONY : lab1_genlisp
-
-# fast build rule for target.
-lab1_genlisp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_genlisp.dir/build.make lab3/CMakeFiles/lab1_genlisp.dir/build
-.PHONY : lab1_genlisp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_generate_messages_lisp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_generate_messages_lisp.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-lab1_generate_messages_lisp: lab3/CMakeFiles/lab1_generate_messages_lisp.dir/rule
-
-.PHONY : lab1_generate_messages_lisp
-
-# fast build rule for target.
-lab1_generate_messages_lisp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_generate_messages_lisp.dir/build.make lab3/CMakeFiles/lab1_generate_messages_lisp.dir/build
-.PHONY : lab1_generate_messages_lisp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_generate_messages_eus.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_generate_messages_eus.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-lab1_generate_messages_eus: lab3/CMakeFiles/lab1_generate_messages_eus.dir/rule
-
-.PHONY : lab1_generate_messages_eus
-
-# fast build rule for target.
-lab1_generate_messages_eus/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_generate_messages_eus.dir/build.make lab3/CMakeFiles/lab1_generate_messages_eus.dir/build
-.PHONY : lab1_generate_messages_eus/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : lab3/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: lab3/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make lab3/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : lab3/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: lab3/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make lab3/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : lab3/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: lab3/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make lab3/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : lab3/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: lab3/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_eus
-
-# fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make lab3/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : lab3/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: lab3/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/std_msgs_generate_messages_py.dir/build.make lab3/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_gencpp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_gencpp.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_gencpp.dir/rule
-
-# Convenience name for target.
-lab1_gencpp: lab3/CMakeFiles/lab1_gencpp.dir/rule
-
-.PHONY : lab1_gencpp
-
-# fast build rule for target.
-lab1_gencpp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_gencpp.dir/build.make lab3/CMakeFiles/lab1_gencpp.dir/build
-.PHONY : lab1_gencpp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : lab3/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: lab3/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make lab3/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : lab3/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: lab3/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make lab3/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : lab3/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: lab3/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make lab3/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : lab3/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: lab3/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make lab3/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : lab3/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: lab3/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make lab3/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/talker.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/talker.dir/rule
-.PHONY : lab3/CMakeFiles/talker.dir/rule
-
-# Convenience name for target.
-talker: lab3/CMakeFiles/talker.dir/rule
-
-.PHONY : talker
-
-# fast build rule for target.
-talker/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/talker.dir/build.make lab3/CMakeFiles/talker.dir/build
-.PHONY : talker/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : lab3/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: lab3/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make lab3/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_genpy.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_genpy.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_genpy.dir/rule
-
-# Convenience name for target.
-lab1_genpy: lab3/CMakeFiles/lab1_genpy.dir/rule
-
-.PHONY : lab1_genpy
-
-# fast build rule for target.
-lab1_genpy/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_genpy.dir/build.make lab3/CMakeFiles/lab1_genpy.dir/build
-.PHONY : lab1_genpy/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_generate_messages_nodejs.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_generate_messages_nodejs.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-lab1_generate_messages_nodejs: lab3/CMakeFiles/lab1_generate_messages_nodejs.dir/rule
-
-.PHONY : lab1_generate_messages_nodejs
-
-# fast build rule for target.
-lab1_generate_messages_nodejs/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_generate_messages_nodejs.dir/build.make lab3/CMakeFiles/lab1_generate_messages_nodejs.dir/build
-.PHONY : lab1_generate_messages_nodejs/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : lab3/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: lab3/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/roscpp_generate_messages_eus.dir/build.make lab3/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_geneus.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_geneus.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_geneus.dir/rule
-
-# Convenience name for target.
-lab1_geneus: lab3/CMakeFiles/lab1_geneus.dir/rule
-
-.PHONY : lab1_geneus
-
-# fast build rule for target.
-lab1_geneus/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_geneus.dir/build.make lab3/CMakeFiles/lab1_geneus.dir/build
-.PHONY : lab1_geneus/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : lab3/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_py: lab3/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/roscpp_generate_messages_py.dir/build.make lab3/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : lab3/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: lab3/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make lab3/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : lab3/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: lab3/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make lab3/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : lab3/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: lab3/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make lab3/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : lab3/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: lab3/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make lab3/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : lab3/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: lab3/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make lab3/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_generate_messages.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_generate_messages.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_generate_messages.dir/rule
-
-# Convenience name for target.
-lab1_generate_messages: lab3/CMakeFiles/lab1_generate_messages.dir/rule
-
-.PHONY : lab1_generate_messages
-
-# fast build rule for target.
-lab1_generate_messages/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_generate_messages.dir/build.make lab3/CMakeFiles/lab1_generate_messages.dir/build
-.PHONY : lab1_generate_messages/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : lab3/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: lab3/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make lab3/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : lab3/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: lab3/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make lab3/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-lab3/CMakeFiles/lab1_generate_messages_cpp.dir/rule:
-	cd /home/jposteps/anro/build && $(MAKE) -f CMakeFiles/Makefile2 lab3/CMakeFiles/lab1_generate_messages_cpp.dir/rule
-.PHONY : lab3/CMakeFiles/lab1_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-lab1_generate_messages_cpp: lab3/CMakeFiles/lab1_generate_messages_cpp.dir/rule
-
-.PHONY : lab1_generate_messages_cpp
-
-# fast build rule for target.
-lab1_generate_messages_cpp/fast:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/lab1_generate_messages_cpp.dir/build.make lab3/CMakeFiles/lab1_generate_messages_cpp.dir/build
-.PHONY : lab1_generate_messages_cpp/fast
-
-src/talker.o: src/talker.cpp.o
-
-.PHONY : src/talker.o
+.PHONY : src/nonkdl_dkin.o
 
 # target to build an object file
-src/talker.cpp.o:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/talker.dir/build.make lab3/CMakeFiles/talker.dir/src/talker.cpp.o
-.PHONY : src/talker.cpp.o
+src/nonkdl_dkin.cpp.o:
+	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/nonkdl_dkin.dir/build.make lab3/CMakeFiles/nonkdl_dkin.dir/src/nonkdl_dkin.cpp.o
+.PHONY : src/nonkdl_dkin.cpp.o
 
-src/talker.i: src/talker.cpp.i
+src/nonkdl_dkin.i: src/nonkdl_dkin.cpp.i
 
-.PHONY : src/talker.i
+.PHONY : src/nonkdl_dkin.i
 
 # target to preprocess a source file
-src/talker.cpp.i:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/talker.dir/build.make lab3/CMakeFiles/talker.dir/src/talker.cpp.i
-.PHONY : src/talker.cpp.i
+src/nonkdl_dkin.cpp.i:
+	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/nonkdl_dkin.dir/build.make lab3/CMakeFiles/nonkdl_dkin.dir/src/nonkdl_dkin.cpp.i
+.PHONY : src/nonkdl_dkin.cpp.i
 
-src/talker.s: src/talker.cpp.s
+src/nonkdl_dkin.s: src/nonkdl_dkin.cpp.s
 
-.PHONY : src/talker.s
+.PHONY : src/nonkdl_dkin.s
 
 # target to generate assembly for a file
-src/talker.cpp.s:
-	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/talker.dir/build.make lab3/CMakeFiles/talker.dir/src/talker.cpp.s
-.PHONY : src/talker.cpp.s
+src/nonkdl_dkin.cpp.s:
+	cd /home/jposteps/anro/build && $(MAKE) -f lab3/CMakeFiles/nonkdl_dkin.dir/build.make lab3/CMakeFiles/nonkdl_dkin.dir/src/nonkdl_dkin.cpp.s
+.PHONY : src/nonkdl_dkin.cpp.s
 
 # Help Target
 help:
@@ -682,44 +217,13 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... install/local"
+	@echo "... nonkdl_dkin"
 	@echo "... install/strip"
-	@echo "... lab1_generate_messages_py"
-	@echo "... lab1_gennodejs"
-	@echo "... lab1_genlisp"
-	@echo "... lab1_generate_messages_lisp"
-	@echo "... lab1_generate_messages_eus"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... lab1_gencpp"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... talker"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... lab1_genpy"
-	@echo "... lab1_generate_messages_nodejs"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... lab1_geneus"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... lab1_generate_messages"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... lab1_generate_messages_cpp"
-	@echo "... src/talker.o"
-	@echo "... src/talker.i"
-	@echo "... src/talker.s"
+	@echo "... install/local"
+	@echo "... test"
+	@echo "... src/nonkdl_dkin.o"
+	@echo "... src/nonkdl_dkin.i"
+	@echo "... src/nonkdl_dkin.s"
 .PHONY : help
 
 
