@@ -1,8 +1,0 @@
-prefix=/home/jposteps/anro/install
-
-Name: lab1
-Description: Description of lab1
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/jposteps/anro/install/lib 
-Requires: 
