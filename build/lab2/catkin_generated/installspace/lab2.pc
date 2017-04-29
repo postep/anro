@@ -1,0 +1,8 @@
+prefix=/home/osboxes/anro/install
+
+Name: lab2
+Description: Description of lab2
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/osboxes/anro/install/lib 
+Requires: 

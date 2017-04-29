@@ -142,6 +142,9 @@ include_directories(
 add_executable(nonkdl_dkin src/nonkdl_dkin.cpp)
 target_link_libraries(nonkdl_dkin ${catkin_LIBRARIES})
 
+add_executable(kdl_dkin src/kdl_dkin.cpp)
+target_link_libraries(kdl_dkin ${catkin_LIBRARIES})
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
