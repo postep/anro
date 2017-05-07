@@ -1,8 +1,8 @@
-prefix=/home/osboxes/anro/install
+prefix=/home/jposteps/anro/install
 
 Name: lab2
 Description: Description of lab2
 Version: 0.0.1
 Cflags: 
-Libs: -L/home/osboxes/anro/install/lib 
+Libs: -L/home/jposteps/anro/install/lib 
 Requires: 

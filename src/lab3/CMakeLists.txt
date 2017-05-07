@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   urdf
   tf
   sensor_msgs
+  kdl_parser
 )
 
 

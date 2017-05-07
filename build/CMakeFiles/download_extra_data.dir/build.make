@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/osboxes/anro/src
+CMAKE_SOURCE_DIR = /home/jposteps/anro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/osboxes/anro/build
+CMAKE_BINARY_DIR = /home/jposteps/anro/build
 
 # Utility rule file for download_extra_data.
 
@@ -67,6 +67,6 @@ CMakeFiles/download_extra_data.dir/clean:
 .PHONY : CMakeFiles/download_extra_data.dir/clean
 
 CMakeFiles/download_extra_data.dir/depend:
-	cd /home/osboxes/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/osboxes/anro/src /home/osboxes/anro/src /home/osboxes/anro/build /home/osboxes/anro/build /home/osboxes/anro/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jposteps/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jposteps/anro/src /home/jposteps/anro/src /home/jposteps/anro/build /home/jposteps/anro/build /home/jposteps/anro/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/download_extra_data.dir/depend
 

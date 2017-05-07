@@ -1,8 +1,8 @@
-# Install script for directory: /home/osboxes/anro/src/lab2
+# Install script for directory: /home/jposteps/anro/src/lab2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/osboxes/anro/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jposteps/anro/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/osboxes/anro/build/lab2/catkin_generated/installspace/lab2.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jposteps/anro/build/lab2/catkin_generated/installspace/lab2.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab2/cmake" TYPE FILE FILES
-    "/home/osboxes/anro/build/lab2/catkin_generated/installspace/lab2Config.cmake"
-    "/home/osboxes/anro/build/lab2/catkin_generated/installspace/lab2Config-version.cmake"
+    "/home/jposteps/anro/build/lab2/catkin_generated/installspace/lab2Config.cmake"
+    "/home/jposteps/anro/build/lab2/catkin_generated/installspace/lab2Config-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab2" TYPE FILE FILES "/home/osboxes/anro/src/lab2/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab2" TYPE FILE FILES "/home/jposteps/anro/src/lab2/package.xml")
 endif()
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/osboxes/anro/src/lab1
+# Install script for directory: /home/jposteps/anro/src/lab1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/osboxes/anro/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jposteps/anro/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,41 +33,41 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab1/cmake" TYPE FILE FILES "/home/osboxes/anro/build/lab1/catkin_generated/installspace/lab1-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab1/cmake" TYPE FILE FILES "/home/jposteps/anro/build/lab1/catkin_generated/installspace/lab1-msg-paths.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/osboxes/anro/devel/share/roseus/ros/lab1")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/jposteps/anro/devel/share/roseus/ros/lab1")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/osboxes/anro/devel/share/gennodejs/ros/lab1")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/jposteps/anro/devel/share/gennodejs/ros/lab1")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/osboxes/anro/devel/lib/python2.7/dist-packages/lab1")
+  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/jposteps/anro/devel/lib/python2.7/dist-packages/lab1")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/osboxes/anro/devel/lib/python2.7/dist-packages/lab1")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/jposteps/anro/devel/lib/python2.7/dist-packages/lab1")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/osboxes/anro/build/lab1/catkin_generated/installspace/lab1.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jposteps/anro/build/lab1/catkin_generated/installspace/lab1.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab1/cmake" TYPE FILE FILES "/home/osboxes/anro/build/lab1/catkin_generated/installspace/lab1-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab1/cmake" TYPE FILE FILES "/home/jposteps/anro/build/lab1/catkin_generated/installspace/lab1-msg-extras.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab1/cmake" TYPE FILE FILES
-    "/home/osboxes/anro/build/lab1/catkin_generated/installspace/lab1Config.cmake"
-    "/home/osboxes/anro/build/lab1/catkin_generated/installspace/lab1Config-version.cmake"
+    "/home/jposteps/anro/build/lab1/catkin_generated/installspace/lab1Config.cmake"
+    "/home/jposteps/anro/build/lab1/catkin_generated/installspace/lab1Config-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab1" TYPE FILE FILES "/home/osboxes/anro/src/lab1/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lab1" TYPE FILE FILES "/home/jposteps/anro/src/lab1/package.xml")
 endif()
 

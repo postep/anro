@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/osboxes/anro/src
+CMAKE_SOURCE_DIR = /home/jposteps/anro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/osboxes/anro/build
+CMAKE_BINARY_DIR = /home/jposteps/anro/build
 
 # Utility rule file for rosgraph_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ lab1/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build: rosgraph_msgs_gen
 .PHONY : lab1/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 
 lab1/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
-	cd /home/osboxes/anro/build/lab1 && $(CMAKE_COMMAND) -P CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/jposteps/anro/build/lab1 && $(CMAKE_COMMAND) -P CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : lab1/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 
 lab1/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend:
-	cd /home/osboxes/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/osboxes/anro/src /home/osboxes/anro/src/lab1 /home/osboxes/anro/build /home/osboxes/anro/build/lab1 /home/osboxes/anro/build/lab1/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jposteps/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jposteps/anro/src /home/jposteps/anro/src/lab1 /home/jposteps/anro/build /home/jposteps/anro/build/lab1 /home/jposteps/anro/build/lab1/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lab1/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
 

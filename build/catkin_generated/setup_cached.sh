@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/osboxes/anro/build"
+export PWD="/home/jposteps/anro/build"

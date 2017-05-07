@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/osboxes/anro/src
+CMAKE_SOURCE_DIR = /home/jposteps/anro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/osboxes/anro/build
+CMAKE_BINARY_DIR = /home/jposteps/anro/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/osboxes/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/osboxes/anro/src /home/osboxes/anro/src /home/osboxes/anro/build /home/osboxes/anro/build /home/osboxes/anro/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jposteps/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jposteps/anro/src /home/jposteps/anro/src /home/jposteps/anro/build /home/jposteps/anro/build /home/jposteps/anro/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

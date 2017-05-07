@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/osboxes/anro/src
+CMAKE_SOURCE_DIR = /home/jposteps/anro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/osboxes/anro/build
+CMAKE_BINARY_DIR = /home/jposteps/anro/build
 
 # Include any dependencies generated for this target.
 include lab1/CMakeFiles/talker.dir/depend.make
@@ -58,17 +58,17 @@ include lab1/CMakeFiles/talker.dir/progress.make
 include lab1/CMakeFiles/talker.dir/flags.make
 
 lab1/CMakeFiles/talker.dir/src/talker.cpp.o: lab1/CMakeFiles/talker.dir/flags.make
-lab1/CMakeFiles/talker.dir/src/talker.cpp.o: /home/osboxes/anro/src/lab1/src/talker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/anro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lab1/CMakeFiles/talker.dir/src/talker.cpp.o"
-	cd /home/osboxes/anro/build/lab1 && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/talker.dir/src/talker.cpp.o -c /home/osboxes/anro/src/lab1/src/talker.cpp
+lab1/CMakeFiles/talker.dir/src/talker.cpp.o: /home/jposteps/anro/src/lab1/src/talker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lab1/CMakeFiles/talker.dir/src/talker.cpp.o"
+	cd /home/jposteps/anro/build/lab1 && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/talker.dir/src/talker.cpp.o -c /home/jposteps/anro/src/lab1/src/talker.cpp
 
 lab1/CMakeFiles/talker.dir/src/talker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/talker.dir/src/talker.cpp.i"
-	cd /home/osboxes/anro/build/lab1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/anro/src/lab1/src/talker.cpp > CMakeFiles/talker.dir/src/talker.cpp.i
+	cd /home/jposteps/anro/build/lab1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jposteps/anro/src/lab1/src/talker.cpp > CMakeFiles/talker.dir/src/talker.cpp.i
 
 lab1/CMakeFiles/talker.dir/src/talker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/talker.dir/src/talker.cpp.s"
-	cd /home/osboxes/anro/build/lab1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/anro/src/lab1/src/talker.cpp -o CMakeFiles/talker.dir/src/talker.cpp.s
+	cd /home/jposteps/anro/build/lab1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jposteps/anro/src/lab1/src/talker.cpp -o CMakeFiles/talker.dir/src/talker.cpp.s
 
 lab1/CMakeFiles/talker.dir/src/talker.cpp.o.requires:
 
@@ -88,33 +88,33 @@ talker_OBJECTS = \
 # External object files for target talker
 talker_EXTERNAL_OBJECTS =
 
-/home/osboxes/anro/devel/lib/lab1/talker: lab1/CMakeFiles/talker.dir/src/talker.cpp.o
-/home/osboxes/anro/devel/lib/lab1/talker: lab1/CMakeFiles/talker.dir/build.make
-/home/osboxes/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/libroscpp.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/osboxes/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/librosconsole.so
-/home/osboxes/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-/home/osboxes/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/osboxes/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/osboxes/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/osboxes/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/librostime.so
-/home/osboxes/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/libcpp_common.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/osboxes/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/osboxes/anro/devel/lib/lab1/talker: lab1/CMakeFiles/talker.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/osboxes/anro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/osboxes/anro/devel/lib/lab1/talker"
-	cd /home/osboxes/anro/build/lab1 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/talker.dir/link.txt --verbose=$(VERBOSE)
+/home/jposteps/anro/devel/lib/lab1/talker: lab1/CMakeFiles/talker.dir/src/talker.cpp.o
+/home/jposteps/anro/devel/lib/lab1/talker: lab1/CMakeFiles/talker.dir/build.make
+/home/jposteps/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/libroscpp.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/jposteps/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/librosconsole.so
+/home/jposteps/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+/home/jposteps/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/jposteps/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/jposteps/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/jposteps/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/librostime.so
+/home/jposteps/anro/devel/lib/lab1/talker: /opt/ros/kinetic/lib/libcpp_common.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/jposteps/anro/devel/lib/lab1/talker: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/jposteps/anro/devel/lib/lab1/talker: lab1/CMakeFiles/talker.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/jposteps/anro/devel/lib/lab1/talker"
+	cd /home/jposteps/anro/build/lab1 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/talker.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-lab1/CMakeFiles/talker.dir/build: /home/osboxes/anro/devel/lib/lab1/talker
+lab1/CMakeFiles/talker.dir/build: /home/jposteps/anro/devel/lib/lab1/talker
 
 .PHONY : lab1/CMakeFiles/talker.dir/build
 
@@ -123,10 +123,10 @@ lab1/CMakeFiles/talker.dir/requires: lab1/CMakeFiles/talker.dir/src/talker.cpp.o
 .PHONY : lab1/CMakeFiles/talker.dir/requires
 
 lab1/CMakeFiles/talker.dir/clean:
-	cd /home/osboxes/anro/build/lab1 && $(CMAKE_COMMAND) -P CMakeFiles/talker.dir/cmake_clean.cmake
+	cd /home/jposteps/anro/build/lab1 && $(CMAKE_COMMAND) -P CMakeFiles/talker.dir/cmake_clean.cmake
 .PHONY : lab1/CMakeFiles/talker.dir/clean
 
 lab1/CMakeFiles/talker.dir/depend:
-	cd /home/osboxes/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/osboxes/anro/src /home/osboxes/anro/src/lab1 /home/osboxes/anro/build /home/osboxes/anro/build/lab1 /home/osboxes/anro/build/lab1/CMakeFiles/talker.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jposteps/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jposteps/anro/src /home/jposteps/anro/src/lab1 /home/jposteps/anro/build /home/jposteps/anro/build/lab1 /home/jposteps/anro/build/lab1/CMakeFiles/talker.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lab1/CMakeFiles/talker.dir/depend
 

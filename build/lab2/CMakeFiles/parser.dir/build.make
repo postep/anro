@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/osboxes/anro/src
+CMAKE_SOURCE_DIR = /home/jposteps/anro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/osboxes/anro/build
+CMAKE_BINARY_DIR = /home/jposteps/anro/build
 
 # Include any dependencies generated for this target.
 include lab2/CMakeFiles/parser.dir/depend.make
@@ -58,17 +58,17 @@ include lab2/CMakeFiles/parser.dir/progress.make
 include lab2/CMakeFiles/parser.dir/flags.make
 
 lab2/CMakeFiles/parser.dir/src/parser.cpp.o: lab2/CMakeFiles/parser.dir/flags.make
-lab2/CMakeFiles/parser.dir/src/parser.cpp.o: /home/osboxes/anro/src/lab2/src/parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/anro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lab2/CMakeFiles/parser.dir/src/parser.cpp.o"
-	cd /home/osboxes/anro/build/lab2 && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parser.dir/src/parser.cpp.o -c /home/osboxes/anro/src/lab2/src/parser.cpp
+lab2/CMakeFiles/parser.dir/src/parser.cpp.o: /home/jposteps/anro/src/lab2/src/parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lab2/CMakeFiles/parser.dir/src/parser.cpp.o"
+	cd /home/jposteps/anro/build/lab2 && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parser.dir/src/parser.cpp.o -c /home/jposteps/anro/src/lab2/src/parser.cpp
 
 lab2/CMakeFiles/parser.dir/src/parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parser.dir/src/parser.cpp.i"
-	cd /home/osboxes/anro/build/lab2 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/anro/src/lab2/src/parser.cpp > CMakeFiles/parser.dir/src/parser.cpp.i
+	cd /home/jposteps/anro/build/lab2 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jposteps/anro/src/lab2/src/parser.cpp > CMakeFiles/parser.dir/src/parser.cpp.i
 
 lab2/CMakeFiles/parser.dir/src/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parser.dir/src/parser.cpp.s"
-	cd /home/osboxes/anro/build/lab2 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/anro/src/lab2/src/parser.cpp -o CMakeFiles/parser.dir/src/parser.cpp.s
+	cd /home/jposteps/anro/build/lab2 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jposteps/anro/src/lab2/src/parser.cpp -o CMakeFiles/parser.dir/src/parser.cpp.s
 
 lab2/CMakeFiles/parser.dir/src/parser.cpp.o.requires:
 
@@ -88,44 +88,44 @@ parser_OBJECTS = \
 # External object files for target parser
 parser_EXTERNAL_OBJECTS =
 
-/home/osboxes/anro/devel/lib/lab2/parser: lab2/CMakeFiles/parser.dir/src/parser.cpp.o
-/home/osboxes/anro/devel/lib/lab2/parser: lab2/CMakeFiles/parser.dir/build.make
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/liburdf.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librosconsole_bridge.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libtf.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libtf2_ros.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libactionlib.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libmessage_filters.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libroscpp.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libtf2.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librosconsole.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librostime.so
-/home/osboxes/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libcpp_common.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/osboxes/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/osboxes/anro/devel/lib/lab2/parser: lab2/CMakeFiles/parser.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/osboxes/anro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/osboxes/anro/devel/lib/lab2/parser"
-	cd /home/osboxes/anro/build/lab2 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/parser.dir/link.txt --verbose=$(VERBOSE)
+/home/jposteps/anro/devel/lib/lab2/parser: lab2/CMakeFiles/parser.dir/src/parser.cpp.o
+/home/jposteps/anro/devel/lib/lab2/parser: lab2/CMakeFiles/parser.dir/build.make
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/liburdf.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librosconsole_bridge.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libtf.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libtf2_ros.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libactionlib.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libmessage_filters.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libroscpp.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libtf2.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librosconsole.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/librostime.so
+/home/jposteps/anro/devel/lib/lab2/parser: /opt/ros/kinetic/lib/libcpp_common.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/jposteps/anro/devel/lib/lab2/parser: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/jposteps/anro/devel/lib/lab2/parser: lab2/CMakeFiles/parser.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jposteps/anro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/jposteps/anro/devel/lib/lab2/parser"
+	cd /home/jposteps/anro/build/lab2 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/parser.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-lab2/CMakeFiles/parser.dir/build: /home/osboxes/anro/devel/lib/lab2/parser
+lab2/CMakeFiles/parser.dir/build: /home/jposteps/anro/devel/lib/lab2/parser
 
 .PHONY : lab2/CMakeFiles/parser.dir/build
 
@@ -134,10 +134,10 @@ lab2/CMakeFiles/parser.dir/requires: lab2/CMakeFiles/parser.dir/src/parser.cpp.o
 .PHONY : lab2/CMakeFiles/parser.dir/requires
 
 lab2/CMakeFiles/parser.dir/clean:
-	cd /home/osboxes/anro/build/lab2 && $(CMAKE_COMMAND) -P CMakeFiles/parser.dir/cmake_clean.cmake
+	cd /home/jposteps/anro/build/lab2 && $(CMAKE_COMMAND) -P CMakeFiles/parser.dir/cmake_clean.cmake
 .PHONY : lab2/CMakeFiles/parser.dir/clean
 
 lab2/CMakeFiles/parser.dir/depend:
-	cd /home/osboxes/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/osboxes/anro/src /home/osboxes/anro/src/lab2 /home/osboxes/anro/build /home/osboxes/anro/build/lab2 /home/osboxes/anro/build/lab2/CMakeFiles/parser.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jposteps/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jposteps/anro/src /home/jposteps/anro/src/lab2 /home/jposteps/anro/build /home/jposteps/anro/build/lab2 /home/jposteps/anro/build/lab2/CMakeFiles/parser.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lab2/CMakeFiles/parser.dir/depend
 

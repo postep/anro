@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/osboxes/anro/src
+CMAKE_SOURCE_DIR = /home/jposteps/anro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/osboxes/anro/build
+CMAKE_BINARY_DIR = /home/jposteps/anro/build
 
 # Utility rule file for actionlib_generate_messages_py.
 
@@ -63,10 +63,10 @@ lab2/CMakeFiles/actionlib_generate_messages_py.dir/build: actionlib_generate_mes
 .PHONY : lab2/CMakeFiles/actionlib_generate_messages_py.dir/build
 
 lab2/CMakeFiles/actionlib_generate_messages_py.dir/clean:
-	cd /home/osboxes/anro/build/lab2 && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/jposteps/anro/build/lab2 && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : lab2/CMakeFiles/actionlib_generate_messages_py.dir/clean
 
 lab2/CMakeFiles/actionlib_generate_messages_py.dir/depend:
-	cd /home/osboxes/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/osboxes/anro/src /home/osboxes/anro/src/lab2 /home/osboxes/anro/build /home/osboxes/anro/build/lab2 /home/osboxes/anro/build/lab2/CMakeFiles/actionlib_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jposteps/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jposteps/anro/src /home/jposteps/anro/src/lab2 /home/jposteps/anro/build /home/jposteps/anro/build/lab2 /home/jposteps/anro/build/lab2/CMakeFiles/actionlib_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lab2/CMakeFiles/actionlib_generate_messages_py.dir/depend
 

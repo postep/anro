@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/osboxes/anro/src
+CMAKE_SOURCE_DIR = /home/jposteps/anro/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/osboxes/anro/build
+CMAKE_BINARY_DIR = /home/jposteps/anro/build
 
 # Utility rule file for lab1_geneus.
 
@@ -63,10 +63,10 @@ lab1/CMakeFiles/lab1_geneus.dir/build: lab1_geneus
 .PHONY : lab1/CMakeFiles/lab1_geneus.dir/build
 
 lab1/CMakeFiles/lab1_geneus.dir/clean:
-	cd /home/osboxes/anro/build/lab1 && $(CMAKE_COMMAND) -P CMakeFiles/lab1_geneus.dir/cmake_clean.cmake
+	cd /home/jposteps/anro/build/lab1 && $(CMAKE_COMMAND) -P CMakeFiles/lab1_geneus.dir/cmake_clean.cmake
 .PHONY : lab1/CMakeFiles/lab1_geneus.dir/clean
 
 lab1/CMakeFiles/lab1_geneus.dir/depend:
-	cd /home/osboxes/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/osboxes/anro/src /home/osboxes/anro/src/lab1 /home/osboxes/anro/build /home/osboxes/anro/build/lab1 /home/osboxes/anro/build/lab1/CMakeFiles/lab1_geneus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jposteps/anro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jposteps/anro/src /home/jposteps/anro/src/lab1 /home/jposteps/anro/build /home/jposteps/anro/build/lab1 /home/jposteps/anro/build/lab1/CMakeFiles/lab1_geneus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lab1/CMakeFiles/lab1_geneus.dir/depend
 

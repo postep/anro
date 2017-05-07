@@ -13,7 +13,7 @@ void callback(const sensor_msgs::JointState & msg);
 void CalculateQuaternion();
 
 double t1,t2,t3;
-double a2=0,a3=0,d1=0; //default 0.4 0.2 0.2
+double a2=0,a3=0,d1=0;
 double Quat[4];
 double M[3][3];
 double pos[3];
