@@ -13,11 +13,7 @@ void callback(const sensor_msgs::JointState & msg);
 
 double t1,t2,t3;
 double a2=0,a3=0,d1=0;
-double Quaternion[4];
-double Matrix[3][3];
-double pos[3];
 
-void calcQuat(double T[][3]);
 
 int main(int argc, char **argv)
 {
@@ -59,29 +55,21 @@ int main(int argc, char **argv)
 		q(1)=t2;
 		q(2)=t3;
        	
-	      	solver.JntToCart(q,F_results);
-	       	int k=0;
-		for(int j=0;j<3;j++) {
-			pos[j]=F_results.p.data[j];
-			
-				for(int i=0;i<3;i++) {
-		        	Matrix[j][i]=F_results.M.data[k];
-			        k++;
-		        }   
-		}
-       	
-       		calcQuat(Matrix);
-//wiadomość do publishera
+	    solver.JntToCart(q,F_results);
+		
+		//wiadomość do publishera
 		msg.header.frame_id="base_link";
 
-		msg.pose.position.x=pos[0];
-		msg.pose.position.y=pos[1];
-		msg.pose.position.z=pos[2];
+		msg.pose.position.x=F_results.p.data[0];
+		msg.pose.position.y=F_results.p.data[1];
+		msg.pose.position.z=F_results.p.data[2];
 
-		msg.pose.orientation.x=Quaternion[0];
-		msg.pose.orientation.y=Quaternion[1];
-		msg.pose.orientation.z=Quaternion[2];
-		msg.pose.orientation.w=Quaternion[3];
+		double x, y, z, w;
+		F_results.M.GetQuaternion(x, y, z, w);
+		msg.pose.orientation.x=x;
+		msg.pose.orientation.y=y;
+		msg.pose.orientation.z=z;
+		msg.pose.orientation.w=w;
 
 		kdl_pub.publish(msg);
 
@@ -95,38 +83,5 @@ void callback(const sensor_msgs::JointState & msg)
 {
 	t1=msg.position[0];
 	t2=msg.position[1];
-	t3=msg.position[2];
-			
+	t3=msg.position[2];	
 } 
-
-void calcQuat(double T[][3])
-{
-	float trace = T[0][0] + T[1][1] + T[2][2]; 
-	if( trace > 0 ) {
-		float s = 0.5f / sqrtf(trace+ 1.0f);
-		Quaternion[3] = 0.25f / s;
-		Quaternion[0] = ( T[2][1] - T[1][2] ) * s;
-		Quaternion[1] = ( T[0][2] - T[2][0] ) * s;
-		Quaternion[2] = ( T[1][0] - T[0][1] ) * s;
-	} else {
-		if ( T[0][0] > T[1][1] && T[0][0] > T[2][2] ) {
-			float s = 2.0f * sqrtf( 1.0f + T[0][0] - T[1][1] - T[2][2]);
-			Quaternion[3] = (T[2][1] - T[1][2] ) / s;
-			Quaternion[0] = 0.25f * s;
-			Quaternion[1] = (T[0][1] + T[1][0] ) / s;
-			Quaternion[2] = (T[0][2] + T[2][0] ) / s;
-		} else if (T[1][1] > T[2][2]) {
-			float s = 2.0f * sqrtf( 1.0f + T[1][1] - T[0][0] - T[2][2]);
-			Quaternion[3] = (T[0][2] - T[2][0] ) / s;
-			Quaternion[0] = (T[0][1] + T[1][0] ) / s;
-			Quaternion[1] = 0.25f * s;
-			Quaternion[2] = (T[1][2] + T[2][1] ) / s;
-		} else {
-			float s = 2.0f * sqrtf( 1.0f + T[2][2] - T[0][0] - T[1][1] );
-			Quaternion[3] = (T[1][0] - T[0][1] ) / s;
-			Quaternion[0] = (T[0][2] + T[2][0] ) / s;
-			Quaternion[1] = (T[1][2] + T[2][1] ) / s;
-			Quaternion[2] = 0.25f * s;
-		}
-	}
-}
