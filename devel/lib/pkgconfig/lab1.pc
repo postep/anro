@@ -1,8 +1,0 @@
-prefix=/home/osboxes/anro/devel
-
-Name: lab1
-Description: Description of lab1
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/osboxes/anro/devel/lib 
-Requires: 
