@@ -10,20 +10,14 @@ int main(int argc, char **argv)
   while(ros::ok())
   {
     lab4::jint_control_srv srv;
-    double t1, t2, t3, t;
-    int type;
-    std::cin >> t1 >> t2 >> t3 >> t >> type;
+    float t1, t2, t3, t;
+    std::cin >> t1 >> t2 >> t3 >> t >> srv.request.type;
     srv.request.t1 = t1;
     srv.request.t2 = t2;
     srv.request.t3 = t3;
     srv.request.t = t;
-    srv.request.type = type;
     if(client.call(srv)){
-      if(srv.response.result){
-        ROS_INFO("Service called, success.");
-      }else{
-        ROS_INFO("Service called, fail.");
-      }
+      ROS_INFO("Service called, %s", srv.response.status.c_str());
     }else{
       ROS_ERROR("Failed to call service.");
     }

@@ -1,6 +1,7 @@
-float64 t1
-float64 t2
-float64 t3
-float64 t
+float32 t1
+float32 t2
+float32 t3
+float32 t
+string type
 ---
-bool result
+string status
