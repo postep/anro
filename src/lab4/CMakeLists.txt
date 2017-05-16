@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   sensor_msgs
   kdl_parser
+  ecl_geometry
 )
 
 

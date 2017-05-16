@@ -6,7 +6,8 @@
 #include <kdl/chain.hpp>
 #include <kdl/chainfksolverpos_recursive.hpp>
 #include <kdl/frames.hpp>
-
+#include <ecl/geometry.hpp>
+#include <iostream>
 
 #define LOOP_RATE 30
 
@@ -26,8 +27,23 @@ double calculate_interpolation(double x1, double x2, double t, double T, ITYPE i
   double ret;
   switch(interpolation)
   {
-    case linear: ret = x1+(x2-x1)*(t/T); break;
-  }
+    case linear: {
+      ret = x1+(x2-x1)*(t/T); 
+      break;
+    }
+    case spline: {
+      double x11 = x1 + (x2-x1)*0.2;
+      double x22 = x1 + (x2-x1)*0.8;
+      ecl::Array<double> x_arr(4);
+      ecl::Array<double> y_arr(4);
+      x_arr << 0, 0.2*T, 0.8*T, T;
+      y_arr << x1, x11, x22, x2;
+      double max_curvature = 1.0;
+      ecl::SmoothLinearSpline spline(x_arr, y_arr, max_curvature);
+      ret = spline(t);
+      break;
+    }
+  } 
   return ret;
 }
 
