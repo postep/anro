@@ -1,0 +1,6 @@
+<launch>
+<arg name="rvizconfig" default="$(find lab4)/rviz/urdf2.rviz" />	
+  <node name="oint" pkg="lab4" type="oint" />
+  <node name="ocmd" pkg="lab4" type="ocmd" output="screen"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
