@@ -20,8 +20,8 @@ int main(int argc, char **argv)
 	ros::init(argc, argv, "KDL_DKIN");	
 	ros::NodeHandle n;
 	
-	ros::Publisher kdl_pub=n.advertise<geometry_msgs::PoseStamped>("posestamped_kdl",1);
-	ros::Subscriber kdl_sub=n.subscribe("/joint_states",100,callback);
+	ros::Publisher kdl_pub=n.advertise<geometry_msgs::PoseStamped>("posestamped_kdl", 1);
+	ros::Subscriber kdl_sub=n.subscribe("/joint_states", 100, callback);
 
 	n.param<double>("a2",a2,0.4);
 	n.param<double>("a3",a3,0.2);

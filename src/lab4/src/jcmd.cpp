@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 {
   ros::init(argc, argv, "jint_server");
   ros::NodeHandle n;
-  ros::ServiceClient client = n.serviceClient<lab4::jint_control_srv>("oint_control_srv");
+  ros::ServiceClient client = n.serviceClient<lab4::jint_control_srv>("jint_control_srv");
   while(ros::ok())
   {
     lab4::jint_control_srv srv;

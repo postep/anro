@@ -7,12 +7,12 @@
 #include <kdl/chainfksolverpos_recursive.hpp>
 #include <kdl/frames.hpp>
 #include <ecl/geometry.hpp>
-#include <iostream>
 
-#define LOOP_RATE 30
+#define LOOP_RATE 30.0
 
 using namespace std;
 using namespace KDL;
+using namespace ecl;
 
 enum ITYPE {linear, spline};
 double old_joints[3];
@@ -34,12 +34,12 @@ double calculate_interpolation(double x1, double x2, double t, double T, ITYPE i
     case spline: {
       double x11 = x1 + (x2-x1)*0.2;
       double x22 = x1 + (x2-x1)*0.8;
-      ecl::Array<double> x_arr(4);
-      ecl::Array<double> y_arr(4);
-      x_arr << 0, 0.2*T, 0.8*T, T;
+      Array<double> x_arr(4);
+      Array<double> y_arr(4);
+      x_arr << 0, 0.4*T, 0.6*T, T;
       y_arr << x1, x11, x22, x2;
       double max_curvature = 1.0;
-      ecl::SmoothLinearSpline spline(x_arr, y_arr, max_curvature);
+      SmoothLinearSpline spline(x_arr, y_arr, max_curvature);
       ret = spline(t);
       break;
     }
@@ -125,14 +125,18 @@ bool interpolate(lab4::jint_control_srv::Request& request, lab4::jint_control_sr
   time_counter = 0;
   
   nav_msgs::Path path;
-  ros::Rate loop_rate(30);
+  ros::Rate loop_rate(LOOP_RATE);
   while(time_counter < time_end)
   {
     double j1, j2, j3;
-    j1 = calculate_interpolation(old_joints[0], joints[0], time_counter, time_end, interpolation);
-    j2 = calculate_interpolation(old_joints[1], joints[1], time_counter, time_end, interpolation);
-    j3 = calculate_interpolation(old_joints[2], joints[2], time_counter, time_end, interpolation);
-    
+    try{
+      j1 = calculate_interpolation(old_joints[0], joints[0], time_counter, time_end, interpolation);
+      j2 = calculate_interpolation(old_joints[1], joints[1], time_counter, time_end, interpolation);
+      j3 = calculate_interpolation(old_joints[2], joints[2], time_counter, time_end, interpolation);
+    }catch(...){
+      response.status = "Can not calculate interpolation";
+      return true;
+    }
     sensor_msgs::JointState msg;
     fill_header(msg.header, seq_joint_no);
     fill_joint_message(msg, j1, j2, j3);
@@ -140,7 +144,7 @@ bool interpolate(lab4::jint_control_srv::Request& request, lab4::jint_control_sr
     add_path_position(path, j1, j2, j3);
     joint_states_pub.publish(msg);
     path_pub.publish(path);
-    time_counter += 1/30.0;
+    time_counter += 1/LOOP_RATE;
     loop_rate.sleep();
   }
   
@@ -154,23 +158,24 @@ bool interpolate(lab4::jint_control_srv::Request& request, lab4::jint_control_sr
 
 int main(int argc, char **argv)
 {
-  old_joints[0] = 0; old_joints[1] = 0; old_joints[2] = 0;
   ros::init(argc, argv, "jint_server");
   ros::NodeHandle n;
   
-  joint_states_pub=n.advertise<sensor_msgs::JointState>("joint_states",1);
+  old_joints[0] = 0; old_joints[1] = 0; old_joints[2] = 0;
+  chain.addSegment(Segment(Joint(Joint::RotZ),Frame(Frame::DH(0,0,1.0,0))));
+  chain.addSegment(Segment(Joint(Joint::None),Frame(Frame::DH(0,-M_PI/2.0,0,0))));
+  chain.addSegment(Segment(Joint(Joint::RotZ),Frame(Frame::DH(1,0,0,-M_PI/2.0))));
+  chain.addSegment(Segment(Joint(Joint::RotZ),Frame(Frame::DH(0,0,0,0))));    
+
+  joint_states_pub=n.advertise<sensor_msgs::JointState>("joint_states",100);
   path_pub=n.advertise<nav_msgs::Path>("path",1);
+  ros::ServiceServer service = n.advertiseService("jint_control_srv", interpolate);
+	
   sensor_msgs::JointState msg;
+  fill_header(msg.header, seq_joint_no);
   fill_joint_message(msg, 0, 0, 0);
   joint_states_pub.publish(msg);
-
-  ros::ServiceServer service = n.advertiseService("oint_control_srv", interpolate);
-
-	chain.addSegment(Segment(Joint(Joint::RotZ),Frame(Frame::DH(0,0,1.0,0))));
-	chain.addSegment(Segment(Joint(Joint::None),Frame(Frame::DH(0,-M_PI/2.0,0,0))));
-	chain.addSegment(Segment(Joint(Joint::RotZ),Frame(Frame::DH(1,0,0,-M_PI/2.0))));
-	chain.addSegment(Segment(Joint(Joint::RotZ),Frame(Frame::DH(0,0,0,0))));		
-
+  ros::spinOnce();
   ROS_INFO("Ready to interpolate.");
   ros::spin();
   return 0;
