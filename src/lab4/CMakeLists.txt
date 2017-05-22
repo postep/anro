@@ -63,6 +63,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_service_files(DIRECTORY srv
   FILES
   jint_control_srv.srv
+  oint_control_srv.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -127,6 +128,13 @@ target_link_libraries(jint ${catkin_LIBRARIES})
 add_executable(jcmd src/jcmd.cpp)
 target_link_libraries(jcmd ${catkin_LIBRARIES})
 
+
+add_executable(oint src/oint.cpp)
+target_link_libraries(oint ${catkin_LIBRARIES})
+
+add_executable(ocmd src/ocmd.cpp)
+target_link_libraries(ocmd ${catkin_LIBRARIES})
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -137,8 +145,16 @@ target_link_libraries(jcmd ${catkin_LIBRARIES})
 ## same as for the library above
 add_dependencies(jint ${catkin_EXPORTED_TARGETS})
 add_dependencies(jint ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
 add_dependencies(jcmd ${catkin_EXPORTED_TARGETS})
 add_dependencies(jcmd ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
+
+add_dependencies(oint ${catkin_EXPORTED_TARGETS})
+add_dependencies(oint ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
+add_dependencies(ocmd ${catkin_EXPORTED_TARGETS})
+add_dependencies(ocmd ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
