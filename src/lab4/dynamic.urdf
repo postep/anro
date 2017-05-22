@@ -73,10 +73,11 @@
     </visual>
  </link>
 
-<joint name="cylinder_1_cylinder_2" type="continuous">
+<joint name="cylinder_1_cylinder_2" type="revolute">
     <parent link="cylinder_1"/>
     <child link="cylinder_2"/>
     <axis xyz="0 1.0 0"/>
+    <limit effort="1000.0" lower="-1.570" upper="1.570" velocity="1"/>
     <origin rpy="0 0 0" xyz="0 0 1.0"/>
   </joint>
 
@@ -106,9 +107,10 @@
     </visual>
  </link>
 
-<joint name="cylinder_2_cylinder_3" type="continuous">
+<joint name="cylinder_2_cylinder_3" type="revolute">
   <parent link="cylinder_2"/>
   <child link="cylinder_3"/>
+  <limit effort="1000.0" lower="-1.570" upper="1.570" velocity="1"/>
   <axis xyz="0 1 0"/>
   <origin xyz="0 0 1.0"/>
 </joint>

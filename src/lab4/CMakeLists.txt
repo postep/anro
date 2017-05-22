@@ -62,7 +62,6 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate services in the 'srv' folder
 add_service_files(DIRECTORY srv
   FILES
-  jint_control_srv.srv
   oint_control_srv.srv
 )
 
@@ -122,12 +121,8 @@ include_directories(
 # add_executable(${PROJECT_NAME}_node src/lab2_node.cpp)
 
 
-add_executable(jint src/jint.cpp)
-target_link_libraries(jint ${catkin_LIBRARIES})
-
-add_executable(jcmd src/jcmd.cpp)
-target_link_libraries(jcmd ${catkin_LIBRARIES})
-
+add_executable(ikin src/ikin.cpp)
+target_link_libraries(ikin ${catkin_LIBRARIES})
 
 add_executable(oint src/oint.cpp)
 target_link_libraries(oint ${catkin_LIBRARIES})
@@ -143,12 +138,8 @@ target_link_libraries(ocmd ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(jint ${catkin_EXPORTED_TARGETS})
-add_dependencies(jint ${${PROJECT_NAME}_EXPORTED_TARGETS})
-
-add_dependencies(jcmd ${catkin_EXPORTED_TARGETS})
-add_dependencies(jcmd ${${PROJECT_NAME}_EXPORTED_TARGETS})
-
+add_dependencies(ikin ${catkin_EXPORTED_TARGETS})
+add_dependencies(ikin ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
 add_dependencies(oint ${catkin_EXPORTED_TARGETS})
 add_dependencies(oint ${${PROJECT_NAME}_EXPORTED_TARGETS})

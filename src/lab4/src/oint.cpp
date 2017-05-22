@@ -4,31 +4,51 @@
 #include <math.h>
 #include <kdl/frames.hpp>
 #include <iostream>
+#include <ecl/geometry.hpp>
+
 
 #define LOOP_RATE 30
 
 using namespace std;
-using namespace KDL;
+using namespace ecl;
+
 
 enum ITYPE {linear, spline};
 double old_pos[3];
-double old_angle[3];
 uint seq_axis_no = 0;
 uint seq_path_no = 0;
 uint seq_pose_no = 0;
 ros::Publisher pose_stamped_pub;
 ros::Publisher path_pub;
 
-double calculate_interpolation(double x1, double x2, double t, double T){
+double calculate_interpolation(double x1, double x2, double t, double T, ITYPE interpolation){
   double ret;
-  ret = x1+(x2-x1)*(t/T);
+  switch(interpolation)
+  {
+    case linear: {
+      ret = x1+(x2-x1)*(t/T); 
+      break;
+    }
+    case spline: {
+      double x11 = x1 + (x2-x1)*0.2;
+      double x22 = x1 + (x2-x1)*0.8;
+      Array<double> x_arr(4);
+      Array<double> y_arr(4);
+      x_arr << 0, 0.4*T, 0.6*T, T;
+      y_arr << x1, x11, x22, x2;
+      double max_curvature = 1.0;
+      SmoothLinearSpline spline(x_arr, y_arr, max_curvature);
+      ret = spline(t);
+      break;
+    }
+  } 
   return ret;
 }
 
 
 void fill_header(std_msgs::Header & header, uint& seq_no){
   header.seq = seq_no;
-  header.frame_id="map";
+  header.frame_id="base_link";
   header.stamp = ros::Time::now();
   ++seq_no;
 }
@@ -39,17 +59,8 @@ void fill_pos_message(geometry_msgs::Point &msg, double pos1, double pos2, doubl
   msg.z=pos3;
 }
 
-void fill_quat_message(geometry_msgs::Quaternion &msg, double angle[]){
-  KDL::Rotation rot = KDL::Rotation::RPY(angle[0], angle[1], angle[2]);
-  double x,y,z,w;
-  rot.GetQuaternion(x,y,z,w);
-  msg.x=x;
-  msg.y=y;
-  msg.z=z;
-  msg.w=w;
-}
 
-void add_path_position(nav_msgs::Path &path, double pos1, double pos2, double pos3, double angle[]){
+void add_path_position(nav_msgs::Path &path, double pos1, double pos2, double pos3){
   geometry_msgs::PoseStamped pose_stamped;
 
   fill_header(pose_stamped.header, seq_pose_no);
@@ -57,37 +68,42 @@ void add_path_position(nav_msgs::Path &path, double pos1, double pos2, double po
   pose_stamped.pose.position.y = pos2;
   pose_stamped.pose.position.z = pos3;
 
-  KDL::Rotation rot = KDL::Rotation::RPY(angle[0], angle[1], angle[2]);
-  double x, y, z, w;
-  rot.GetQuaternion(x,y,z,w);
-  pose_stamped.pose.orientation.x=x;
-  pose_stamped.pose.orientation.y=y;
-  pose_stamped.pose.orientation.z=z;
-  pose_stamped.pose.orientation.w=w;
-
   path.poses.push_back(pose_stamped);
+
+  pose_stamped.pose.orientation.x = 0;
+  pose_stamped.pose.orientation.y = 0;
+  pose_stamped.pose.orientation.z = 0;
+  pose_stamped.pose.orientation.w = 0;
 }
 
 bool interpolate(lab4::oint_control_srv::Request& request, lab4::oint_control_srv::Response& response)
 {
   double pos[3];
-  double angle[3];
-  double quat[4]={0};
   double time_counter = 0;
   double time_end = 0;
-  
-  ROS_INFO("x=%f, y=%f, z=%f, roll=%f, pitch=%f, yaw=%f, time=%f", (float)request.x, (float)request.y, (float)request.z, (float)request.roll, (float)request.pitch, (float)request.yaw, (float)request.time);
+
+
+  ROS_INFO("x=%f, y=%f, z=%f, time=%f", (float)request.x, (float)request.y, (float)request.z, (float)request.time);
 
   if(request.time <= 0){
     response.status = "Wrong time";
     return true;
   }
+  if(request.type != "linear" && request.type != "spline"){
+    response.status = "Wrong interpolation type";
+    return true;
+  }
+  ITYPE type;
+  if(request.type == "linear"){
+    type = linear;
+  }
+  if(request.type == "spline"){
+    type = spline;
+  }
+
   pos[0] = request.x;
   pos[1] = request.y;
   pos[2] = request.z;
-  angle[0] = request.roll;
-  angle[1] = request.pitch;
-  angle[2] = request.yaw;
 
   time_end = request.time;
   time_counter = 0;
@@ -98,21 +114,25 @@ bool interpolate(lab4::oint_control_srv::Request& request, lab4::oint_control_sr
   {
     double pos1, pos2, pos3;
     double ang[3];
-    pos1 = calculate_interpolation(old_pos[0], pos[0], time_counter, time_end);
-    pos2 = calculate_interpolation(old_pos[1], pos[1], time_counter, time_end);
-    pos3 = calculate_interpolation(old_pos[2], pos[2], time_counter, time_end);
-    
-    ang[0] = calculate_interpolation(old_angle[0], angle[0], time_counter, time_end);
-    ang[1] = calculate_interpolation(old_angle[1], angle[1], time_counter, time_end);
-    ang[2] = calculate_interpolation(old_angle[2], angle[2], time_counter, time_end);
-    
+    pos1 = calculate_interpolation(old_pos[0], pos[0], time_counter, time_end, type); //x
+    pos2 = calculate_interpolation(old_pos[1], pos[1], time_counter, time_end, type); //y
+
+    double delta = 4-4*(1-sqrt(1-pow(pos1, 2) - pow(pos2, 2)));
+    double rozw;
+    rozw = (2 + sqrt(delta))/2;
+    if (rozw>0){
+      pos3=rozw;
+    }
+    else {
+      pos3 = (2 - sqrt(delta))/2;
+    }
+
     geometry_msgs::PoseStamped msg;
     fill_header(msg.header, seq_axis_no);
     fill_pos_message(msg.pose.position, pos1, pos2, pos3);
-    fill_quat_message(msg.pose.orientation, ang);
 
     fill_header(path.header, seq_path_no);
-    add_path_position(path, pos1, pos2, pos3, ang);
+    add_path_position(path, pos1, pos2, pos3);
 
     pose_stamped_pub.publish(msg);
     path_pub.publish(path);
@@ -125,10 +145,6 @@ bool interpolate(lab4::oint_control_srv::Request& request, lab4::oint_control_sr
   old_pos[0] = pos[0];
   old_pos[1] = pos[1];
   old_pos[2] = pos[2];
-
-  old_angle[0] = angle[0];
-  old_angle[1] = angle[1];
-  old_angle[2] = angle[2];
   return true;
 }
 
@@ -136,16 +152,17 @@ bool interpolate(lab4::oint_control_srv::Request& request, lab4::oint_control_sr
 int main(int argc, char **argv)
 {
   old_pos[0] = 0; old_pos[1] = 0; old_pos[2] = 0;
-  old_angle[0] = 0; old_angle[1] = 0; old_angle[2] = 0;
   ros::init(argc, argv, "oint_server");
   ros::NodeHandle n;
   
-  pose_stamped_pub=n.advertise<geometry_msgs::PoseStamped>("pose_stamped",1);
+  pose_stamped_pub=n.advertise<geometry_msgs::PoseStamped>("pose_stamped", 1);
   path_pub=n.advertise<nav_msgs::Path>("path",1);
   geometry_msgs::PoseStamped msg;
 
+  ros::Rate loop_rate(1);
+  loop_rate.sleep();
+  fill_header(msg.header, seq_axis_no);
   fill_pos_message(msg.pose.position, 0, 0, 0);
-  fill_quat_message(msg.pose.orientation, old_angle);
   pose_stamped_pub.publish(msg);
 
   ros::ServiceServer service = n.advertiseService("oint_control_srv", interpolate);
