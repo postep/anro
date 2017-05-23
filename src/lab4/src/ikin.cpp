@@ -2,6 +2,7 @@
 #include <sensor_msgs/JointState.h>
 #include <geometry_msgs/PoseStamped.h>
 #include "lab4/oint_control_srv.h"
+#include "library.cpp"
 #include <math.h>
 
 #define LOOP_RATE 30.0
@@ -31,26 +32,20 @@ void fill_joint_message(sensor_msgs::JointState &msg, double j1, double j2, doub
 
 void pose_stamped_callback(const geometry_msgs::PoseStamped pose_stamped)
 {
-  double a1 = 1, a2 = 1;
   double x = pose_stamped.pose.position.x;
   double y = pose_stamped.pose.position.y;
-  double z = pose_stamped.pose.position.z - a1;
+  double z = pose_stamped.pose.position.z;
 
-  double r = sqrt(pow(x, 2) + pow(y, 2));
-  
-  double t2_1 = asin(a2/r);
-  double t2_2 = atan(r/z);
-  double t2 = t2_2;
+  double t1, t2, t3;
 
-  double t1_1 = acos(x/r);
-  double t1_2 = acos(y/r);
-  double t1 = t1_1;
-
-  sensor_msgs::JointState joint_states;
-  fill_header(joint_states.header, seq_joint_no);
-  ROS_INFO("joints: %f, %f, %f", t1, t2, 0.0);
-  fill_joint_message(joint_states, t1, t2, 0);
-  //joint_states_pub.publish(joint_states);
+  if(calculate_inverse_kinematic(x, y, z, t1, t2, t3)){
+    sensor_msgs::JointState joint_states;
+    fill_header(joint_states.header, seq_joint_no);
+    fill_joint_message(joint_states, t1, t2-M_PI/2, 0);
+    joint_states_pub.publish(joint_states);
+  }else{
+    ROS_ERROR("bad inverse kinematic");
+  }
 }
 
 
