@@ -50,7 +50,7 @@ void pose_stamped_callback(const geometry_msgs::PoseStamped pose_stamped)
   fill_header(joint_states.header, seq_joint_no);
   ROS_INFO("joints: %f, %f, %f", t1, t2, 0.0);
   fill_joint_message(joint_states, t1, t2, 0);
-  joint_states_pub.publish(joint_states);
+  //joint_states_pub.publish(joint_states);
 }
 
 
