@@ -1,0 +1,8 @@
+prefix=/home/jposteps/anro/devel
+
+Name: lab4
+Description: Description of lab4
+Version: 0.0.1
+Cflags: -I/home/jposteps/anro/devel/include
+Libs: -L/home/jposteps/anro/devel/lib 
+Requires: roscpp std_msgs message_runtime

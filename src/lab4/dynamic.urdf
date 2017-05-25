@@ -20,7 +20,6 @@
   <color rgba="0 1 0 1"/>
 </material>
 
-
 <link name="base_link">
   <visual>
     <geometry>
@@ -34,7 +33,7 @@
 <link name="cylinder_1">
   <visual>
     <geometry>
-      <cylinder length="1" radius="0.2"/>
+      <cylinder length="1.0" radius="0.2"/>
     </geometry>
     <origin rpy="0 0 0" xyz="0 0 0.5"/>
     <material name="blue"/>
@@ -66,7 +65,7 @@
 <link name="cylinder_2">
     <visual>
       <geometry>
-        <cylinder length="1" radius="0.2"/>
+        <cylinder length="1.0" radius="0.2"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0.5"/>
       <material name="green"/>

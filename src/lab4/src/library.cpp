@@ -13,9 +13,7 @@ bool equal_eps(double a, double b){
   return (a + eps >= b) && (a - eps <= b);
 }
 
-bool calculate_inverse_kinematic(double x, double y, double z, double& t1, double& t2, double& t3){
-  double a1 = 1;
-  double a2 = 1;
+bool calculate_inverse_kinematic(double x, double y, double z, double& t1, double& t2, double& t3, double a1, double a2){
   double r = sqrt(pow(x, 2) + pow(y, 2));
   z -= a1;
   if(!equal_eps(sqrt(x*x + y*y + z*z), a2) || z < 0 || z > 1 || x < -1 || x > 1 || y < -1 || y > 1){
@@ -88,13 +86,11 @@ double calculate_joint_interpolation(double x1, double x2, double t, double T, I
   return i;
 }
 
-void calculate_kinematic(double &x, double &y, double &z, double t1, double t2, double t3){
-  double a1 = 1, a2 = 1;
+void calculate_kinematic(double &x, double &y, double &z, double t1, double t2, double t3, double a1, double a2){
   double r = a2*cos(t2);
   z = a2 * sin(t2) + 1;
   x = r * cos(t1);
   y = r * sin(t1);
 }
-
 
 #endif

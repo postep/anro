@@ -17,6 +17,9 @@ uint seq_path_no = 0;
 uint seq_pose_no = 0;
 ros::Publisher pose_stamped_pub;
 ros::Publisher path_pub;
+double a1;
+double a2;
+
 
 
 void fill_header(std_msgs::Header & header, uint& seq_no){
@@ -79,8 +82,8 @@ bool interpolate(lab4::oint_control_srv::Request& request, lab4::oint_control_sr
   pos[2] = request.z;
 
   double old_j[3], j[3];
-  calculate_inverse_kinematic(old_pos[0], old_pos[1], old_pos[2], old_j[0], old_j[1], old_j[2]);
-  if(!calculate_inverse_kinematic(request.x, request.y, request.z, j[0], j[1], j[2])){
+  calculate_inverse_kinematic(old_pos[0], old_pos[1], old_pos[2], old_j[0], old_j[1], old_j[2], a1, a2);
+  if(!calculate_inverse_kinematic(request.x, request.y, request.z, j[0], j[1], j[2], a1, a2)){
     response.status = "BAD POSITION";
     return true;
   }
@@ -99,7 +102,7 @@ bool interpolate(lab4::oint_control_srv::Request& request, lab4::oint_control_sr
     j3 = calculate_joint_interpolation(old_j[2], j[2], time_counter, time_end, type);
 
     double x, y, z;
-    calculate_kinematic(x, y, z, j1, j2, j3);
+    calculate_kinematic(x, y, z, j1, j2, j3, a1, a2);
     
     geometry_msgs::PoseStamped msg;
     fill_header(msg.header, seq_axis_no);
@@ -125,10 +128,12 @@ bool interpolate(lab4::oint_control_srv::Request& request, lab4::oint_control_sr
 
 int main(int argc, char **argv)
 {
-  old_pos[0] = 0; old_pos[1] = 0; old_pos[2] = 2;
   ros::init(argc, argv, "oint_server");
   ros::NodeHandle n;
-  
+  n.getParam("a1", a1);
+  n.getParam("a2", a2);
+  old_pos[0] = 0; old_pos[1] = 0; old_pos[2] = a1+a2;
+  ROS_INFO("%f, %f", a1, a2);
   pose_stamped_pub=n.advertise<geometry_msgs::PoseStamped>("pose_stamped", 1);
   path_pub=n.advertise<nav_msgs::Path>("path",1);
   geometry_msgs::PoseStamped msg;

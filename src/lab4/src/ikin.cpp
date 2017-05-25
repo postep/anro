@@ -11,7 +11,8 @@ using namespace std;
 
 uint seq_joint_no = 0;
 ros::Publisher joint_states_pub;
-
+double a1;
+double a2;  
 
 void fill_header(std_msgs::Header & header, uint& seq_no){
   header.seq = seq_no;
@@ -38,7 +39,7 @@ void pose_stamped_callback(const geometry_msgs::PoseStamped pose_stamped)
 
   double t1, t2, t3;
 
-  if(calculate_inverse_kinematic(x, y, z, t1, t2, t3)){
+  if(calculate_inverse_kinematic(x, y, z, t1, t2, t3, a1, a2)){
     sensor_msgs::JointState joint_states;
     fill_header(joint_states.header, seq_joint_no);
     fill_joint_message(joint_states, t1, t2-M_PI/2, 0);
@@ -54,9 +55,12 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "ikin");
   ros::NodeHandle n;
 
+  n.getParam("a1", a1);
+  n.getParam("a2", a2);
+  
   joint_states_pub=n.advertise<sensor_msgs::JointState>("joint_states",100);
   ros::Subscriber sub = n.subscribe("pose_stamped", 1000, pose_stamped_callback);
-  ros::Rate loop_rate(1);
+  ros::Rate loop_rate(2);
   loop_rate.sleep();
   sensor_msgs::JointState msg;
   fill_header(msg.header, seq_joint_no);
